@@ -1,0 +1,11 @@
+﻿@model Parcial_PWA.Models.Student
+
+<h2>Eliminar Estudiante</h2>
+
+<p>¿Estás seguro de que deseas eliminar a <strong>@Model.FirstName @Model.LastName</strong>?</p>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="StudentId" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

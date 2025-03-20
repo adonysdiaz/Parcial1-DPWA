@@ -1,0 +1,49 @@
+﻿@using Parcial_PWA.Models
+
+@model IEnumerable<Parcial_PWA.Models.Student>
+
+@{
+    ViewData["Title"] = "Lista de Estudiantes";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-lg p-4">
+        <h2 class="text-center text-primary mb-4">📋 Lista de Estudiantes</h2>
+
+        <table class="table table-striped table-hover text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Código</th>
+                    <th>Nombre Completo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    int index = 1;
+                    foreach (var student in Model)
+                    {
+                        <tr>
+                            <td>@index</td>
+                            <td>@student.StudentNumber</td>
+                            <td>@($"{student.FirstName} {student.LastName}")</td>
+                            <td>
+                                <a class="btn btn-sm btn-info" asp-action="Edit" asp-route-id="@student.">✏️ Editar</a>
+                                <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@student.">🗑️ Eliminar</a>
+                            </td>
+                        </tr>
+                        index++;
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4" class="text-muted">⚠️ No hay estudiantes registrados.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

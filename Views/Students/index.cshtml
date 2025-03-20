@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Parcial_PWA.Models.Student>
+
+<h2>Lista de Estudiantes</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Edad</th>
+            <th>Carnet</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <td>@student.FirstName</td>
+                <td>@student.LastName</td>
+                <td>@student.Age</td>
+                <td>@student.StudentNumber</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@student.StudentId">Editar</a> |
+                    <a asp-action="Delete" asp-route-id="@student.StudentId">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Create" class="btn btn-primary">Agregar Estudiante</a>

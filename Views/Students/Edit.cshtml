@@ -1,0 +1,26 @@
+﻿@model Parcial_PWA.Models.Student
+
+<h2>Editar Estudiante</h2>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="StudentId" />
+    <div class="form-group">
+        <label for="FirstName">Nombre:</label>
+        <input type="text" class="form-control" asp-for="FirstName" required />
+    </div>
+    <div class="form-group">
+        <label for="LastName">Apellido:</label>
+        <input type="text" class="form-control" asp-for="LastName" required />
+    </div>
+    <div class="form-group">
+        <label for="Age">Edad:</label>
+        <input type="number" class="form-control" asp-for="Age" required />
+    </div>
+    <div class="form-group">
+        <label for="StudentNumber">Carnet:</label>
+        <input type="text" class="form-control" asp-for="StudentNumber" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Actualizar</button>
+    <a asp-action="Index" class="btn btn-secondary">Volver</a>
+</form>
+
